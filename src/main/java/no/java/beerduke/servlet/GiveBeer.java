@@ -1,9 +1,5 @@
 package no.java.beerduke.servlet;
 
-import no.java.beerduke.rfid.AutomatController;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;

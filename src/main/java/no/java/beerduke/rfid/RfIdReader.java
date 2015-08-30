@@ -13,7 +13,7 @@ import com.phidgets.event.TagGainEvent;
 import com.phidgets.event.TagGainListener;
 import com.phidgets.event.TagLossEvent;
 import com.phidgets.event.TagLossListener;
-
+import no.java.beerduke.control.AutomatController;
 
 
 public class RfIdReader {

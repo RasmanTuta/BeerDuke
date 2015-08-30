@@ -1,4 +1,4 @@
-package no.java.beerduke.rfid;
+package no.java.beerduke.control;
 
 import no.rasmantuta.ts7800.TS_DIO64;
 

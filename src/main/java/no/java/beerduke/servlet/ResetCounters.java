@@ -32,7 +32,7 @@ public class ResetCounters extends DukeServlet {
 
         // Actual logic goes here.
         PrintWriter out = response.getWriter();
-        out.println(ArrayUtils.toString(counters, "{}"));
+        out.println(countersString(counters));
     }
 
     public void destroy()

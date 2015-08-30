@@ -4,6 +4,11 @@
 
 	<bean id="automatController" class="no.java.beerduke.control.AutomatController">
 		<constructor-arg value="10" />
+		<constructor-arg ref="countersReader" />
+	</bean>
+
+	<bean id="countersReader" class="no.java.beerduke.control.CountersReader">
+		<constructor-arg value="counters" />
 	</bean>
 
 	<bean id="rfIdReader" class="no.java.beerduke.rfid.RfIdReader">

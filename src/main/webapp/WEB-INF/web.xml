@@ -31,9 +31,25 @@
 		<servlet-name>GiveBeer</servlet-name>
 		<servlet-class>no.java.beerduke.servlet.GiveBeer</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>GiveAlarm</servlet-name>
+		<servlet-class>no.java.beerduke.servlet.GiveAlarm</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ResetCounters</servlet-name>
+		<servlet-class>no.java.beerduke.servlet.ResetCounters</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>GiveBeer</servlet-name>
 		<url-pattern>/GiveBeer</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GiveAlarm</servlet-name>
+		<url-pattern>/GiveAlarm</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ResetCounters</servlet-name>
+		<url-pattern>/ResetCounters</url-pattern>
 	</servlet-mapping>
 </web-app>

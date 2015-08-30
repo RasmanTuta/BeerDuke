@@ -4,13 +4,16 @@ import org.apache.commons.lang.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 // Extend HttpServlet class
-public class GiveBeer extends DukeServlet {
+public class ResetCounters extends DukeServlet {
     private static Logger logger = LoggerFactory.getLogger(DukeServlet.class);
+
 
     public void init() throws ServletException
     {
@@ -22,14 +25,7 @@ public class GiveBeer extends DukeServlet {
                       HttpServletResponse response)
             throws ServletException, IOException
     {
-        String slot = request.getParameter("slot");
-        int slotNumber = 0;
-        try {
-            slotNumber = slot == null ? 0: Integer.parseInt(slot);
-        } catch (NumberFormatException e) {
-            logger.debug("Failed to parse slot, using round-robin");
-        }
-        final int[] counters = controller.giveBeer(slotNumber);
+        final int[] counters = this.counters.resetCounters();
         // Set response content type
         response.setContentType("text/plain");
 

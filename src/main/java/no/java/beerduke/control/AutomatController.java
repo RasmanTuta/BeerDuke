@@ -9,11 +9,13 @@ public class AutomatController {
 	private int numSlots;
 	private int robin = 0;
 	private final boolean perform;
+    private final CountersReader counters;
     private static Logger logger = LoggerFactory.getLogger(AutomatController.class);
 
-	public AutomatController(int numSlots){
+	public AutomatController(int numSlots, CountersReader counters){
 		this.numSlots = numSlots;
-		perform = !System.getProperty("os.name").toLowerCase().contains("windows") ;
+        this.counters = counters;
+        perform = !System.getProperty("os.name").toLowerCase().contains("windows") ;
 	}
 	
 	public void resetButtons(){
@@ -22,7 +24,7 @@ public class AutomatController {
 		}
 	}
 	
-	public void giveBeer(int slot){
+	public int[] giveBeer(int slot){
 
         int actualSlot = slot == 0 ? robin : slot - 1;
 		int output = 1 << actualSlot;
@@ -31,7 +33,10 @@ public class AutomatController {
 			TS_DIO64.setOutput(0, 0xffffffff, output);
 		}
 		logger.info("Giving beer from slot " + (robin + 1));
-		robin = ++robin%numSlots;
+		if(slot == 0) {
+            robin = ++robin % numSlots;
+        }
+        return counters.incrementCounter(actualSlot);
 	}
 	
 	public void giveAlarm(){

@@ -28,12 +28,19 @@ public class AutomatController {
 		if(slot > numSlots || slot < 0){
 			throw new IllegalArgumentException("Max slot is " + numSlots + ". You asked for " + slot);
 		}
-		
+
         int actualSlot = slot == 0 ? robin : slot - 1;
 		int output = 1 << actualSlot;
 
 		if(perform) {
 			TS_DIO64.setOutput(0, 0xffffffff, output);
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e) {
+				logger.warn("Interrupted", e);
+			} finally {
+				resetButtons();
+			}
 		}
 		logger.info("Giving beer from slot " + (actualSlot + 1));
 		if(slot == 0) {

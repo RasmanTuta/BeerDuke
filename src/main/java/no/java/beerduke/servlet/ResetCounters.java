@@ -27,7 +27,7 @@ public class ResetCounters extends DukeServlet {
     {
         final int[] counters = this.counters.resetCounters();
         // Set response content type
-        response.setContentType("application/json");
+        prepareResponse(response);
 
 
         // Actual logic goes here.

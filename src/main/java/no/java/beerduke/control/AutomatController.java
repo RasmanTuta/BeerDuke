@@ -32,7 +32,7 @@ public class AutomatController {
 		if(perform) {
 			TS_DIO64.setOutput(0, 0xffffffff, output);
 		}
-		logger.info("Giving beer from slot " + (robin + 1));
+		logger.info("Giving beer from slot " + (actualSlot + 1));
 		if(slot == 0) {
             robin = ++robin % numSlots;
         }

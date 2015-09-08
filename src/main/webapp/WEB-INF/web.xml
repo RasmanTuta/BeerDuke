@@ -39,6 +39,10 @@
 		<servlet-name>ResetCounters</servlet-name>
 		<servlet-class>no.java.beerduke.servlet.ResetCounters</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ReadCounters</servlet-name>
+		<servlet-class>no.java.beerduke.servlet.ReadCounters</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>GiveBeer</servlet-name>
@@ -51,5 +55,9 @@
 	<servlet-mapping>
 		<servlet-name>ResetCounters</servlet-name>
 		<url-pattern>/ResetCounters</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReadCounters</servlet-name>
+		<url-pattern>/ReadCounters</url-pattern>
 	</servlet-mapping>
 </web-app>

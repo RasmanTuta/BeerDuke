@@ -25,7 +25,10 @@ public class AutomatController {
 	}
 	
 	public int[] giveBeer(int slot){
-
+		if(slot > numSlots || slot < 0){
+			throw new IllegalArgumentException("Max slot is " + numSlots + ". You asked for " + slot);
+		}
+		
         int actualSlot = slot == 0 ? robin : slot - 1;
 		int output = 1 << actualSlot;
 

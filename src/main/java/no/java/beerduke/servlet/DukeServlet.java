@@ -18,6 +18,6 @@ public abstract class DukeServlet extends HttpServlet {
 
     protected String countersString(int[] counters){
         final String c = ArrayUtils.toString(counters, "");
-        return "".equals(c) ? "": c.substring(1, c.length() - 1);
+        return "".equals(c) ? "": c.replaceAll("\\{", "[").replaceAll("\\}", "]");
     }
 }

@@ -19,7 +19,7 @@ public class ReadCounters extends DukeServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         final int[] counters = this.counters.readCounters();
-        response.setContentType("text/plain");
+        response.setContentType("application/json");
 
 
         // Actual logic goes here.

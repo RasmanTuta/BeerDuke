@@ -31,7 +31,7 @@ public class GiveBeer extends DukeServlet {
         }
         final int[] counters = controller.giveBeer(slotNumber);
         // Set response content type
-        response.setContentType("text/plain");
+        response.setContentType("application/json");
 
 
         // Actual logic goes here.
